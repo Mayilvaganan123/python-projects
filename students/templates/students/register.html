@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-container {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 15px;
+            height: 85%;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h3 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-right: 5%;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #334155;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            margin: 5px 20px 0 0;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        input:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 4px rgba(79, 70, 229, 0.3);
+        }
+
+        button {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.25s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #4338ca;
+        }
+
+        p {
+            margin-top: 15px;
+            color: #475569;
+        }
+
+        a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        li{
+            list-style: circle; 
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h3>Create Account</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Click to Login</a></p>
+    </div>
+</body>
+</html>
